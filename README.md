@@ -23,17 +23,21 @@ https://github.com/user-attachments/assets/b682599c-6831-49c1-97ae-56032d60e8bb
 [![Click here to add this repo to SignalRGB](https://raw.githubusercontent.com/SRGBmods/QMK-Images/main/images/add-to-signalrgb.png)](https://srgbmods.net/s?p=addon/install?url=https://github.com/qiangqiang101/SignalRGB-Asus-GPU-Custom-Led-Shape-Mapping)
 
 # Template
-- ROG Strix 4000 Series Vertical
+- ROG Strix 4060 Vertical
 
   Led Coordinates: ``[[0,2],[2,2],[4,2],[6,2],[8,2],[10,2],[12,2],[15,1],[16,0],[17,1],[17,3],[17,5],[17,7],[17,9],[16,10],[15,11],[14,10],[14,8],[14,6],[14,4],[14,2]]``
 
   Size: ``[18,12]``
 
-- ROG Strix 4000 Series Normal
+- ROG Strix 4060 Normal
 
   Led Coordinates: ``[[0,8],[2,8],[4,8],[6,8],[8,8],[10,8],[12,8],[13,7],[13,5],[14,4],[15,3],[16,2],[17,1],[18,0],[18,2],[18,4],[17,5],[16,6],[15,7],[14,8],[13,9]]``
 
   Size: ``[19,10]``
+
+- Other models might have different led count
+  
+  Use my [Component Editor](https://github.com/qiangqiang101/Nollie-SignalRGB-Component-Editor) to draw your component
 
 # Special Thanks
 - [SignalRGB](https://signalrgb.com/download/)
