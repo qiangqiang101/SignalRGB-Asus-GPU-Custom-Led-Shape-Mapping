@@ -35,6 +35,18 @@ https://github.com/user-attachments/assets/b682599c-6831-49c1-97ae-56032d60e8bb
 
   Size: ``[19,10]``
 
+- ROG Strix 4080 Super Vertical (thanks to padisha)
+  
+  Led Coordinates: ``[[0,3],[2,3],[4,3],[6,3],[8,3],[10,3],[12,3],[15,2],[16,1],[17,0],[18,1],[18,2],[18,3],[18,4],[18,5],[18,6],[18,7],[18,8],[18,9],[17,10],[16,11],[14,11],[14,10],[14,9],[14,8],[14,7],[14,6],[14,5],[14,4],[14,3]]``
+
+  Size: ``[19,12]``
+
+- ROG Strix 4080 Super Normal (thanks to padisha)
+  
+  Led Coordinates: ``[[0,11],[2,11],[4,11],[6,11],[8,11],[10,11],[12,11],[13,10],[13,9],[13,8],[13,7],[14,6],[15,5],[16,4],[17,3],[18,2],[19,1],[20,0],[21,0],[21,1],[21,3],[21,4],[20,5],[19,6],[18,7],[17,8],[16,9],[15,10],[14,11],[13,11]]``
+
+  Size: ``[22,12]``
+
 - Other models might have different led count
   
   Use my [Component Editor](https://github.com/qiangqiang101/Nollie-SignalRGB-Component-Editor) to draw your component
