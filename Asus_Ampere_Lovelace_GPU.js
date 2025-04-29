@@ -44,8 +44,8 @@ export function ControllableParameters() {
 			description:
 				"Sets whether the device should follow SignalRGB shutdown color, or go back to hardware lighting",
 			type: "combobox",
-			values: ["SignalRGB", "Hardware"],
-			default: "Hardware",
+			values: ["SignalRGB", "Static", "Breathing", "Rainbow", "Comet", "Yoyo", "Starry Night", "Flash and Dash"],
+			default: "Rainbow",
 		},
 		{
 			property: "shutdownColor",
@@ -137,6 +137,16 @@ export function Scan(bus) {
 	return FoundAddresses;
 }
 
+const ModeEffects = {
+	"Static": 0x01, 
+	"Breathing": 0x02, 
+	"Rainbow": 0x05, 
+	"Comet": 0x07, 
+	"Yoyo": 0x0c, 
+	"Starry Night": 0x0d, 
+	"Flash and Dash": 0x0a,
+}
+
 const OldRGBData = [];
 
 export function Initialize() {
@@ -170,7 +180,9 @@ export function Shutdown(SystemSuspending) {
 			sendColors(shutdownColor);
 		} else {
 			AsusGPU.setDirectMode(0x00);
-			AsusGPU.setMode(AsusGPU.modes.rainbow);
+			let user_mode = ModeEffects[shutdownMode];
+			AsusGPU.setMode(user_mode);
+			//AsusGPU.setMode(AsusGPU.modes.rainbow);
 		}
 	}
 }
@@ -640,6 +652,7 @@ class Asus_Ampere_Lovelace_IDs {
 		this.RTX3060TI_STRIX_GAMING = 0x87ba;
 		this.RTX3060TI_STRIX_GAMING_KO = 0x883e;
 		this.RTX3060TI_STRIX_GAMING_KO_2 = 0x87ca; //0x2486
+		this.RTX3060TI_STRIX_GAMING_KO_3 = 0x883F;
 		this.RTX3060TI_STRIX_GAMING_V2 = 0x8834;
 		this.RTX3060TI_TUF_GAMING_OC = 0x87c6;
 		this.RTX3060TI_TUF_GAMING_OC_LHR = 0x8827;
@@ -789,9 +802,15 @@ class Asus_Ampere_Lovelace_IDs {
 		this.RTX4090_MATRIX = 0x8934;
 		this.RTX4090_BTF = 0x893c;
 		this.RTX4090_STRIX_EVA = 0x890c;
+
+		this.RTX5070TI_TUF_GAMING = 0x89F4;
+
 		this.RTX5080_ASTRAL = 0x89de;
+		this.RTX5080_ASTRAL_2 = 0x89df;
 		this.RTX5080_TUF_GAMING_OC = 0x89d7;
+
 		this.RTX5090_TUF_GAMING = 0x89ef;
+		this.RTX5090_TUF_GAMING_2 = 0x89ee;
 		this.RTX5090_ASTRAL = 0x89ec;
 		this.RTX5090_ASTRAL_2 = 0x89e3;
 	}
@@ -910,6 +929,11 @@ const Asus3000GPUIDs = [
 		Nvidia.RTX3060TI_LHR,
 		AsusID.RTX3060TI_STRIX_GAMING_KO_2,
 		"Asus ROG Strix 3060TI O8G Gaming KO LHR"
+	),
+	new AsusGPUIdentifier(
+		Nvidia.RTX3060TI_LHR,
+		AsusID.RTX3060TI_STRIX_GAMING_KO_3,
+		"Asus ROG Strix 3060TI O8G V2 Gaming KO LHR"
 	),
 	new AsusGPUIdentifier(
 		Nvidia.RTX3060TI,
@@ -1584,8 +1608,19 @@ const Asus3000GPUIDs = [
 	),
 
 	new AsusGPUIdentifier(
+		Nvidia.RTX5070TI,
+		AsusID.RTX5070TI_TUF_GAMING,
+		"Asus 5070Ti TUF GAMING"
+	),
+
+	new AsusGPUIdentifier(
 		Nvidia.RTX5080,
 		AsusID.RTX5080_ASTRAL,
+		"Asus 5080 ASTRAL OC"
+	),
+	new AsusGPUIdentifier(
+		Nvidia.RTX5080,
+		AsusID.RTX5080_ASTRAL_2,
 		"Asus 5080 ASTRAL"
 	),
 	new AsusGPUIdentifier(
@@ -1597,6 +1632,11 @@ const Asus3000GPUIDs = [
 	new AsusGPUIdentifier(
 		Nvidia.RTX5090,
 		AsusID.RTX5090_TUF_GAMING,
+		"Asus 5090 TUF GAMING"
+	),
+	new AsusGPUIdentifier(
+		Nvidia.RTX5090,
+		AsusID.RTX5090_TUF_GAMING_2,
 		"Asus 5090 TUF GAMING"
 	),
 	new AsusGPUIdentifier(
